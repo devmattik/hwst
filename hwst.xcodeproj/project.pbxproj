@@ -12,9 +12,11 @@
 		5DA26F6A24F05E70006DEC00 /* hwst.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F6824F05E70006DEC00 /* hwst.xcdatamodeld */; };
 		5DA26F6C24F05E7A006DEC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */; };
 		5DA26F6F24F05E7A006DEC00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA26F6D24F05E7A006DEC00 /* LaunchScreen.storyboard */; };
+		6DD01A9BE0B74B234A72776C /* Pods_hwst.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9BC7E1F2A74EBA105B009C /* Pods_hwst.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20784805CCD833CBBA6B7576 /* Pods-hwst.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hwst.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hwst/Pods-hwst.debug.xcconfig"; sourceTree = "<group>"; };
 		5DA26F5C24F05E70006DEC00 /* HWST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DA26F6324F05E70006DEC00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DA26F6E24F05E7A006DEC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DA26F7024F05E7A006DEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FB02E00B8D9C19C400625BC /* Pods-hwst.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hwst.release.xcconfig"; path = "Pods/Target Support Files/Pods-hwst/Pods-hwst.release.xcconfig"; sourceTree = "<group>"; };
+		DD9BC7E1F2A74EBA105B009C /* Pods_hwst.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hwst.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DD01A9BE0B74B234A72776C /* Pods_hwst.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03799935667B842E80C53372 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD9BC7E1F2A74EBA105B009C /* Pods_hwst.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5DA26F5324F05E6F006DEC00 = {
 			isa = PBXGroup;
 			children = (
 				5DA26F5E24F05E70006DEC00 /* hwst */,
 				5DA26F5D24F05E70006DEC00 /* Products */,
+				A93D416E397A6517B721472E /* Pods */,
+				03799935667B842E80C53372 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = hwst;
 			sourceTree = "<group>";
 		};
+		A93D416E397A6517B721472E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20784805CCD833CBBA6B7576 /* Pods-hwst.debug.xcconfig */,
+				7FB02E00B8D9C19C400625BC /* Pods-hwst.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DA26F7324F05E7A006DEC00 /* Build configuration list for PBXNativeTarget "hwst" */;
 			buildPhases = (
+				AF531AE35A52299C0C6B0B33 /* [CP] Check Pods Manifest.lock */,
 				5DA26F5824F05E70006DEC00 /* Sources */,
 				5DA26F5924F05E70006DEC00 /* Frameworks */,
 				5DA26F5A24F05E70006DEC00 /* Resources */,
+				BEFAC39ABB2F82488DB7C708 /* [CP] Embed Pods Frameworks */,
+				AFE768DFECEE8016D97CCF7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,6 +155,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AF531AE35A52299C0C6B0B33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AFE768DFECEE8016D97CCF7B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hwst/Pods-hwst-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEFAC39ABB2F82488DB7C708 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hwst/Pods-hwst-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5DA26F5824F05E70006DEC00 /* Sources */ = {
@@ -270,6 +357,7 @@
 		};
 		5DA26F7424F05E7A006DEC00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20784805CCD833CBBA6B7576 /* Pods-hwst.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -289,6 +377,7 @@
 		};
 		5DA26F7524F05E7A006DEC00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FB02E00B8D9C19C400625BC /* Pods-hwst.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
