@@ -7,45 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0C232B24F4555D006B48B7 /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C232A24F4555D006B48B7 /* PeriodView.swift */; };
 		5DA26F6024F05E70006DEC00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */; };
-		5DA26F6424F05E70006DEC00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F6324F05E70006DEC00 /* ViewController.swift */; };
-		5DA26F6A24F05E70006DEC00 /* hwst.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F6824F05E70006DEC00 /* hwst.xcdatamodeld */; };
+		5DA26F6424F05E70006DEC00 /* PeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */; };
 		5DA26F6C24F05E7A006DEC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */; };
 		5DA26F6F24F05E7A006DEC00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA26F6D24F05E7A006DEC00 /* LaunchScreen.storyboard */; };
-		5DA26F7724F2AA5E006DEC00 /* ClassifierAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7624F2AA5D006DEC00 /* ClassifierAPI.swift */; };
-		5DA26F7924F2B1C3006DEC00 /* ClassifierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7824F2B1C3006DEC00 /* ClassifierModel.swift */; };
 		5DA26F7B24F2B7FB006DEC00 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7A24F2B7FB006DEC00 /* String+Extension.swift */; };
 		5DA26F7D24F2B855006DEC00 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7C24F2B855006DEC00 /* Helper.swift */; };
-		5DA26F7F24F2BCC1006DEC00 /* PeriodAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7E24F2BCC1006DEC00 /* PeriodAddressModel.swift */; };
-		5DA26F8124F2C439006DEC00 /* ClassifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8024F2C439006DEC00 /* ClassifierService.swift */; };
-		5DA26F8324F2D0F9006DEC00 /* PeriodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8224F2D0F9006DEC00 /* PeriodAPI.swift */; };
-		5DA26F8524F2D18E006DEC00 /* PeriodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8424F2D18E006DEC00 /* PeriodService.swift */; };
-		5DA26F8724F2F755006DEC00 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8624F2F755006DEC00 /* CoreDataManager.swift */; };
-		5DA26F8924F2F778006DEC00 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8824F2F778006DEC00 /* Storage.swift */; };
-		5DA26F8B24F32C75006DEC00 /* PeriodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8A24F32C75006DEC00 /* PeriodTableViewCell.swift */; };
+		5DA26F9024F441B0006DEC00 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8E24F441B0006DEC00 /* CoreDataManager.swift */; };
+		5DA26F9124F441B0006DEC00 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8F24F441B0006DEC00 /* Storage.swift */; };
+		5DA26F9724F4427D006DEC00 /* ClassifierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9424F4427D006DEC00 /* ClassifierModel.swift */; };
+		5DA26F9824F4427D006DEC00 /* ClassifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9524F4427D006DEC00 /* ClassifierService.swift */; };
+		5DA26F9924F4427D006DEC00 /* ClassifierAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9624F4427D006DEC00 /* ClassifierAPI.swift */; };
+		5DA26F9E24F44288006DEC00 /* PeriodAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9A24F44288006DEC00 /* PeriodAddressModel.swift */; };
+		5DA26F9F24F44288006DEC00 /* PeriodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9B24F44288006DEC00 /* PeriodService.swift */; };
+		5DA26FA024F44288006DEC00 /* PeriodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9C24F44288006DEC00 /* PeriodAPI.swift */; };
+		5DA26FA124F44288006DEC00 /* PeriodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9D24F44288006DEC00 /* PeriodTableViewCell.swift */; };
+		5DA26FA924F44D44006DEC00 /* hwst.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26FA724F44D44006DEC00 /* hwst.xcdatamodeld */; };
 		6DD01A9BE0B74B234A72776C /* Pods_hwst.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9BC7E1F2A74EBA105B009C /* Pods_hwst.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20784805CCD833CBBA6B7576 /* Pods-hwst.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hwst.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hwst/Pods-hwst.debug.xcconfig"; sourceTree = "<group>"; };
+		5D0C232A24F4555D006B48B7 /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
 		5DA26F5C24F05E70006DEC00 /* HWST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DA26F6324F05E70006DEC00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5DA26F6924F05E70006DEC00 /* hwst.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hwst.xcdatamodel; sourceTree = "<group>"; };
+		5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodViewController.swift; sourceTree = "<group>"; };
 		5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DA26F6E24F05E7A006DEC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DA26F7024F05E7A006DEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5DA26F7624F2AA5D006DEC00 /* ClassifierAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierAPI.swift; sourceTree = "<group>"; };
-		5DA26F7824F2B1C3006DEC00 /* ClassifierModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierModel.swift; sourceTree = "<group>"; };
 		5DA26F7A24F2B7FB006DEC00 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5DA26F7C24F2B855006DEC00 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		5DA26F7E24F2BCC1006DEC00 /* PeriodAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodAddressModel.swift; sourceTree = "<group>"; };
-		5DA26F8024F2C439006DEC00 /* ClassifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierService.swift; sourceTree = "<group>"; };
-		5DA26F8224F2D0F9006DEC00 /* PeriodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodAPI.swift; sourceTree = "<group>"; };
-		5DA26F8424F2D18E006DEC00 /* PeriodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodService.swift; sourceTree = "<group>"; };
-		5DA26F8624F2F755006DEC00 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		5DA26F8824F2F778006DEC00 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		5DA26F8A24F32C75006DEC00 /* PeriodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTableViewCell.swift; sourceTree = "<group>"; };
+		5DA26F8E24F441B0006DEC00 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5DA26F8F24F441B0006DEC00 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		5DA26F9424F4427D006DEC00 /* ClassifierModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierModel.swift; sourceTree = "<group>"; };
+		5DA26F9524F4427D006DEC00 /* ClassifierService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierService.swift; sourceTree = "<group>"; };
+		5DA26F9624F4427D006DEC00 /* ClassifierAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierAPI.swift; sourceTree = "<group>"; };
+		5DA26F9A24F44288006DEC00 /* PeriodAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodAddressModel.swift; sourceTree = "<group>"; };
+		5DA26F9B24F44288006DEC00 /* PeriodService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodService.swift; sourceTree = "<group>"; };
+		5DA26F9C24F44288006DEC00 /* PeriodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodAPI.swift; sourceTree = "<group>"; };
+		5DA26F9D24F44288006DEC00 /* PeriodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodTableViewCell.swift; sourceTree = "<group>"; };
+		5DA26FA824F44D44006DEC00 /* hwst.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hwst.xcdatamodel; sourceTree = "<group>"; };
 		7FB02E00B8D9C19C400625BC /* Pods-hwst.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hwst.release.xcconfig"; path = "Pods/Target Support Files/Pods-hwst/Pods-hwst.release.xcconfig"; sourceTree = "<group>"; };
 		DD9BC7E1F2A74EBA105B009C /* Pods_hwst.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hwst.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,24 +94,73 @@
 			isa = PBXGroup;
 			children = (
 				5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */,
-				5DA26F6324F05E70006DEC00 /* ViewController.swift */,
-				5DA26F8424F2D18E006DEC00 /* PeriodService.swift */,
-				5DA26F8A24F32C75006DEC00 /* PeriodTableViewCell.swift */,
+				5DA26F9324F44252006DEC00 /* Period */,
+				5DA26F9224F44244006DEC00 /* Classifier */,
+				5DA26F8D24F44190006DEC00 /* CoreData */,
+				5DA26FA324F442DE006DEC00 /* Helpers */,
+				5DA26FA224F442CE006DEC00 /* Extensions */,
+				5DA26F8C24F44140006DEC00 /* SupportedFiles */,
+			);
+			path = hwst;
+			sourceTree = "<group>";
+		};
+		5DA26F8C24F44140006DEC00 /* SupportedFiles */ = {
+			isa = PBXGroup;
+			children = (
 				5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */,
 				5DA26F6D24F05E7A006DEC00 /* LaunchScreen.storyboard */,
 				5DA26F7024F05E7A006DEC00 /* Info.plist */,
-				5DA26F6824F05E70006DEC00 /* hwst.xcdatamodeld */,
-				5DA26F8024F2C439006DEC00 /* ClassifierService.swift */,
-				5DA26F7624F2AA5D006DEC00 /* ClassifierAPI.swift */,
-				5DA26F7824F2B1C3006DEC00 /* ClassifierModel.swift */,
-				5DA26F7C24F2B855006DEC00 /* Helper.swift */,
-				5DA26F7A24F2B7FB006DEC00 /* String+Extension.swift */,
-				5DA26F8224F2D0F9006DEC00 /* PeriodAPI.swift */,
-				5DA26F7E24F2BCC1006DEC00 /* PeriodAddressModel.swift */,
-				5DA26F8624F2F755006DEC00 /* CoreDataManager.swift */,
-				5DA26F8824F2F778006DEC00 /* Storage.swift */,
+				5DA26FA724F44D44006DEC00 /* hwst.xcdatamodeld */,
 			);
-			path = hwst;
+			name = SupportedFiles;
+			sourceTree = "<group>";
+		};
+		5DA26F8D24F44190006DEC00 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5DA26F8E24F441B0006DEC00 /* CoreDataManager.swift */,
+				5DA26F8F24F441B0006DEC00 /* Storage.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		5DA26F9224F44244006DEC00 /* Classifier */ = {
+			isa = PBXGroup;
+			children = (
+				5DA26F9624F4427D006DEC00 /* ClassifierAPI.swift */,
+				5DA26F9424F4427D006DEC00 /* ClassifierModel.swift */,
+				5DA26F9524F4427D006DEC00 /* ClassifierService.swift */,
+			);
+			path = Classifier;
+			sourceTree = "<group>";
+		};
+		5DA26F9324F44252006DEC00 /* Period */ = {
+			isa = PBXGroup;
+			children = (
+				5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */,
+				5D0C232A24F4555D006B48B7 /* PeriodView.swift */,
+				5DA26F9C24F44288006DEC00 /* PeriodAPI.swift */,
+				5DA26F9B24F44288006DEC00 /* PeriodService.swift */,
+				5DA26F9A24F44288006DEC00 /* PeriodAddressModel.swift */,
+				5DA26F9D24F44288006DEC00 /* PeriodTableViewCell.swift */,
+			);
+			path = Period;
+			sourceTree = "<group>";
+		};
+		5DA26FA224F442CE006DEC00 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5DA26F7A24F2B7FB006DEC00 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5DA26FA324F442DE006DEC00 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5DA26F7C24F2B855006DEC00 /* Helper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		A93D416E397A6517B721472E /* Pods */ = {
@@ -254,20 +305,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DA26F6424F05E70006DEC00 /* ViewController.swift in Sources */,
-				5DA26F8124F2C439006DEC00 /* ClassifierService.swift in Sources */,
+				5DA26F6424F05E70006DEC00 /* PeriodViewController.swift in Sources */,
+				5DA26F9824F4427D006DEC00 /* ClassifierService.swift in Sources */,
+				5DA26F9124F441B0006DEC00 /* Storage.swift in Sources */,
 				5DA26F7D24F2B855006DEC00 /* Helper.swift in Sources */,
-				5DA26F7724F2AA5E006DEC00 /* ClassifierAPI.swift in Sources */,
-				5DA26F8524F2D18E006DEC00 /* PeriodService.swift in Sources */,
-				5DA26F7924F2B1C3006DEC00 /* ClassifierModel.swift in Sources */,
-				5DA26F8724F2F755006DEC00 /* CoreDataManager.swift in Sources */,
-				5DA26F8324F2D0F9006DEC00 /* PeriodAPI.swift in Sources */,
+				5DA26F9024F441B0006DEC00 /* CoreDataManager.swift in Sources */,
 				5DA26F6024F05E70006DEC00 /* AppDelegate.swift in Sources */,
-				5DA26F7F24F2BCC1006DEC00 /* PeriodAddressModel.swift in Sources */,
 				5DA26F7B24F2B7FB006DEC00 /* String+Extension.swift in Sources */,
-				5DA26F6A24F05E70006DEC00 /* hwst.xcdatamodeld in Sources */,
-				5DA26F8B24F32C75006DEC00 /* PeriodTableViewCell.swift in Sources */,
-				5DA26F8924F2F778006DEC00 /* Storage.swift in Sources */,
+				5D0C232B24F4555D006B48B7 /* PeriodView.swift in Sources */,
+				5DA26F9724F4427D006DEC00 /* ClassifierModel.swift in Sources */,
+				5DA26FA024F44288006DEC00 /* PeriodAPI.swift in Sources */,
+				5DA26F9E24F44288006DEC00 /* PeriodAddressModel.swift in Sources */,
+				5DA26F9F24F44288006DEC00 /* PeriodService.swift in Sources */,
+				5DA26FA124F44288006DEC00 /* PeriodTableViewCell.swift in Sources */,
+				5DA26F9924F4427D006DEC00 /* ClassifierAPI.swift in Sources */,
+				5DA26FA924F44D44006DEC00 /* hwst.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +456,7 @@
 			baseConfigurationReference = 20784805CCD833CBBA6B7576 /* Pods-hwst.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C4258W3T9M;
 				INFOPLIST_FILE = hwst/Info.plist;
@@ -414,6 +467,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = apro.hwst;
 				PRODUCT_NAME = HWST;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -424,6 +478,7 @@
 			baseConfigurationReference = 7FB02E00B8D9C19C400625BC /* Pods-hwst.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C4258W3T9M;
 				INFOPLIST_FILE = hwst/Info.plist;
@@ -434,6 +489,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = apro.hwst;
 				PRODUCT_NAME = HWST;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -463,12 +519,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5DA26F6824F05E70006DEC00 /* hwst.xcdatamodeld */ = {
+		5DA26FA724F44D44006DEC00 /* hwst.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5DA26F6924F05E70006DEC00 /* hwst.xcdatamodel */,
+				5DA26FA824F44D44006DEC00 /* hwst.xcdatamodel */,
 			);
-			currentVersion = 5DA26F6924F05E70006DEC00 /* hwst.xcdatamodel */;
+			currentVersion = 5DA26FA824F44D44006DEC00 /* hwst.xcdatamodel */;
 			path = hwst.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

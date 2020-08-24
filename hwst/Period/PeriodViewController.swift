@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PeriodViewController.swift
 //  hwst
 //
 //  Created by Антон Прохоров on 21.08.2020.
@@ -8,24 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PeriodViewController: UIViewController {
 
     private let clasifierService = ClassifierService()
     private let periodsService = PeriodService()
     
-    let mainTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
-        tableView.register(PeriodTableViewCell.self, forCellReuseIdentifier: PeriodTableViewCell.identifier)
-        return tableView
-    }()
+    private let mainView = PeriodView()
+    private lazy var tableView = mainView.tableView
     
     override func loadView() {
-        view = mainTableView
+        view = mainView
         
-        mainTableView.dataSource = self
-        mainTableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewDidLoad() {
@@ -40,38 +35,39 @@ class ViewController: UIViewController {
             }
         }
         
-        periodsService.onUpdatePeriods = { [weak self] indexes in
+        periodsService.onInserItems = { [weak self] indexes in
+            guard let strongSelf = self else { return }
             let indexPaths = indexes.map({ IndexPath(row: $0, section: 0) })
-            self?.mainTableView.beginUpdates()
-            self?.mainTableView.insertRows(at: indexPaths, with: .automatic)
-            self?.mainTableView.endUpdates()
+            strongSelf.tableView.beginUpdates()
+            strongSelf.tableView.insertRows(at: indexPaths, with: .automatic)
+            strongSelf.tableView.endUpdates()
         }
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension PeriodViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return periodsService.periodAddresses.count
+        return periodsService.numberOfItems()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView
-            .dequeueReusableCell(withIdentifier: PeriodTableViewCell.identifier) as? PeriodTableViewCell
+            .dequeueReusableCell(withIdentifier: PeriodTableViewCell.identifier) as? PeriodTableViewCell,
+            let item = periodsService.item(at: indexPath.row)
         else {
             return UITableViewCell()
         }
         
-        let item = periodsService.periodAddresses[indexPath.row]
         cell.configure(with: item)
         return cell
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension PeriodViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let actualPosition = scrollView.contentOffset.y;
-        let contentHeight = scrollView.contentSize.height - (UIScreen.main.bounds.height * 2);
-        if (actualPosition >= contentHeight) {
+        let contentHeight = scrollView.contentSize.height - (scrollView.frame.height * 2);
+        if actualPosition >= contentHeight {
             periodsService.loadPage()
          }
     }
