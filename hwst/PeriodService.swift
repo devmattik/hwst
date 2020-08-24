@@ -1,5 +1,5 @@
 //
-//  PeriodsService.swift
+//  PeriodService.swift
 //  hwst
 //
 //  Created by Антон Прохоров on 23.08.2020.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class PeriodsService: NSObject {
+class PeriodService: NSObject {
     
-    private let api = PeriodsAPI()
+    private let api = PeriodAPI()
     
     var onUpdatePeriods: (([Int]) -> Void)?
     

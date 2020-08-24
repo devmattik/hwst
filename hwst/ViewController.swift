@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     private let clasifierService = ClassifierService()
-    private let periodsService = PeriodsService()
+    private let periodsService = PeriodService()
     
     let mainTableView: UITableView = {
         let tableView = UITableView()

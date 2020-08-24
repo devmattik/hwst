@@ -18,8 +18,8 @@
 		5DA26F7D24F2B855006DEC00 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7C24F2B855006DEC00 /* Helper.swift */; };
 		5DA26F7F24F2BCC1006DEC00 /* PeriodAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7E24F2BCC1006DEC00 /* PeriodAddressModel.swift */; };
 		5DA26F8124F2C439006DEC00 /* ClassifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8024F2C439006DEC00 /* ClassifierService.swift */; };
-		5DA26F8324F2D0F9006DEC00 /* PeriodsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8224F2D0F9006DEC00 /* PeriodsAPI.swift */; };
-		5DA26F8524F2D18E006DEC00 /* PeriodsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8424F2D18E006DEC00 /* PeriodsService.swift */; };
+		5DA26F8324F2D0F9006DEC00 /* PeriodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8224F2D0F9006DEC00 /* PeriodAPI.swift */; };
+		5DA26F8524F2D18E006DEC00 /* PeriodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8424F2D18E006DEC00 /* PeriodService.swift */; };
 		5DA26F8724F2F755006DEC00 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8624F2F755006DEC00 /* CoreDataManager.swift */; };
 		5DA26F8924F2F778006DEC00 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8824F2F778006DEC00 /* Storage.swift */; };
 		5DA26F8B24F32C75006DEC00 /* PeriodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8A24F32C75006DEC00 /* PeriodTableViewCell.swift */; };
@@ -41,8 +41,8 @@
 		5DA26F7C24F2B855006DEC00 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5DA26F7E24F2BCC1006DEC00 /* PeriodAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodAddressModel.swift; sourceTree = "<group>"; };
 		5DA26F8024F2C439006DEC00 /* ClassifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierService.swift; sourceTree = "<group>"; };
-		5DA26F8224F2D0F9006DEC00 /* PeriodsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodsAPI.swift; sourceTree = "<group>"; };
-		5DA26F8424F2D18E006DEC00 /* PeriodsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodsService.swift; sourceTree = "<group>"; };
+		5DA26F8224F2D0F9006DEC00 /* PeriodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodAPI.swift; sourceTree = "<group>"; };
+		5DA26F8424F2D18E006DEC00 /* PeriodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodService.swift; sourceTree = "<group>"; };
 		5DA26F8624F2F755006DEC00 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5DA26F8824F2F778006DEC00 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		5DA26F8A24F32C75006DEC00 /* PeriodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 			children = (
 				5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */,
 				5DA26F6324F05E70006DEC00 /* ViewController.swift */,
-				5DA26F8424F2D18E006DEC00 /* PeriodsService.swift */,
+				5DA26F8424F2D18E006DEC00 /* PeriodService.swift */,
 				5DA26F8A24F32C75006DEC00 /* PeriodTableViewCell.swift */,
 				5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */,
 				5DA26F6D24F05E7A006DEC00 /* LaunchScreen.storyboard */,
@@ -104,7 +104,7 @@
 				5DA26F7824F2B1C3006DEC00 /* ClassifierModel.swift */,
 				5DA26F7C24F2B855006DEC00 /* Helper.swift */,
 				5DA26F7A24F2B7FB006DEC00 /* String+Extension.swift */,
-				5DA26F8224F2D0F9006DEC00 /* PeriodsAPI.swift */,
+				5DA26F8224F2D0F9006DEC00 /* PeriodAPI.swift */,
 				5DA26F7E24F2BCC1006DEC00 /* PeriodAddressModel.swift */,
 				5DA26F8624F2F755006DEC00 /* CoreDataManager.swift */,
 				5DA26F8824F2F778006DEC00 /* Storage.swift */,
@@ -258,10 +258,10 @@
 				5DA26F8124F2C439006DEC00 /* ClassifierService.swift in Sources */,
 				5DA26F7D24F2B855006DEC00 /* Helper.swift in Sources */,
 				5DA26F7724F2AA5E006DEC00 /* ClassifierAPI.swift in Sources */,
-				5DA26F8524F2D18E006DEC00 /* PeriodsService.swift in Sources */,
+				5DA26F8524F2D18E006DEC00 /* PeriodService.swift in Sources */,
 				5DA26F7924F2B1C3006DEC00 /* ClassifierModel.swift in Sources */,
 				5DA26F8724F2F755006DEC00 /* CoreDataManager.swift in Sources */,
-				5DA26F8324F2D0F9006DEC00 /* PeriodsAPI.swift in Sources */,
+				5DA26F8324F2D0F9006DEC00 /* PeriodAPI.swift in Sources */,
 				5DA26F6024F05E70006DEC00 /* AppDelegate.swift in Sources */,
 				5DA26F7F24F2BCC1006DEC00 /* PeriodAddressModel.swift in Sources */,
 				5DA26F7B24F2B7FB006DEC00 /* String+Extension.swift in Sources */,

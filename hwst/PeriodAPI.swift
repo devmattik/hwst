@@ -1,5 +1,5 @@
 //
-//  PeriodsAPI.swift
+//  PeriodAPI.swift
 //  hwst
 //
 //  Created by Антон Прохоров on 23.08.2020.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class PeriodsAPI {
+class PeriodAPI {
     
     func loadPeriods(from filePath: URL, completion: @escaping (Result<[PeriodAddressModel], AFError>) -> Void) {
         let url = URL(fileURLWithPath: filePath.absoluteString)
