@@ -39,13 +39,17 @@ class PeriodViewController: UIViewController {
             guard let strongSelf = self else { return }
             let indexPaths = indexes.map({ IndexPath(row: $0, section: 0) })
             strongSelf.tableView.beginUpdates()
-            strongSelf.tableView.insertRows(at: indexPaths, with: .automatic)
+            strongSelf.tableView.insertRows(at: indexPaths, with: .none)
             strongSelf.tableView.endUpdates()
         }
     }
 }
 
 extension PeriodViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Периоды отключения горячей воды"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return periodsService.numberOfItems()
     }

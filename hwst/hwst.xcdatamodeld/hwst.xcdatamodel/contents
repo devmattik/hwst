@@ -7,8 +7,9 @@
         <attribute name="housing" optional="YES" attributeType="String"/>
         <attribute name="letter" optional="YES" attributeType="String"/>
         <attribute name="period" optional="YES" attributeType="String"/>
+        <attribute name="sortIndex" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="PeriodAddressEntity" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="PeriodAddressEntity" positionX="-63" positionY="-18" width="128" height="148"/>
     </elements>
 </model>
