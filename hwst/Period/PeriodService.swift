@@ -78,7 +78,7 @@ class PeriodService {
     private func loadPage() {
         isFetching = true
         
-        let savedPeriods = CoreDataManager.shared.periods(limit: limit, offset: currentOffset)
+        let savedPeriods = PeriodAddressEntity.periods(limit: limit, offset: currentOffset)
         if !savedPeriods.isEmpty {
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
@@ -104,8 +104,8 @@ class PeriodService {
     
     private func savePeriods(_ periods: [PeriodAddressModel]) {
         debugPrint("Save periods count ", periods.count)
-        _ = CoreDataManager.shared.clearPeriods()
-        CoreDataManager.shared.insert(periods: periods)
+        _ = PeriodAddressEntity.clearPeriods()
+        PeriodAddressEntity.insert(periods: periods)
     }
 }
 

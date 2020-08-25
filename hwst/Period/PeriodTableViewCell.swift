@@ -51,7 +51,7 @@ class PeriodTableViewCell: UITableViewCell {
             wrapperView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             wrapperView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             wrapperView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            wrapperView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -offset/2),
+            wrapperView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2),
             
             stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: offset),
             stackView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: offset),

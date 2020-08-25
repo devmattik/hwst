@@ -17,7 +17,7 @@ class PeriodTableView: UITableView {
         rowHeight = UITableView.automaticDimension
         estimatedRowHeight = 140
         separatorStyle = .none
-        sectionHeaderHeight = 4
+        sectionHeaderHeight = 2
         register(PeriodTableViewCell.self, forCellReuseIdentifier: PeriodTableViewCell.identifier)
     }
     

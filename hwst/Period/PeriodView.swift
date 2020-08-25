@@ -39,8 +39,16 @@ class PeriodView: UIView {
     }
     
     private func initLayout() {
+        
+        var titleTopConstraint: NSLayoutConstraint!
+        if #available(iOS 11.0, *) {
+            titleTopConstraint = titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16)
+        } else {
+            titleTopConstraint = titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16)
+        }
+        
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            titleTopConstraint,
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             

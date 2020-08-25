@@ -9,14 +9,16 @@
 import Foundation
 
 struct ClassifierModel: Decodable {
-    let ident: Int
+    let ident: Int64
     let name: String
     let file: String
+    let version: String
     
     enum CodingKeys: String, CodingKey {
         case ident = "classifierId"
         case name = "classifierName"
         case file
+        case version
     }
 }
 

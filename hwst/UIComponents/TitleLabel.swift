@@ -13,7 +13,7 @@ class TitleLabel: UILabel {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         textColor = .black
-        font = UIFont.systemFont(ofSize: 20)
+        font = UIFont.systemFont(ofSize: 17)
         textAlignment = .center
         numberOfLines = 2
     }
