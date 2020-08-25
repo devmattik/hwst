@@ -17,7 +17,7 @@ class ClassifierService {
         classifierAPI.load { result in
             switch result {
             case .success(let classifier):
-                Helper.decodeToZip(from: classifier.file, completion: completion)
+                Helper.decodeBase64String(from: classifier.file, completion: completion)
             case .failure(let error):
                 debugPrint("Failed with message \(error.message) error: \(error.error?.localizedDescription ?? "nil")")
                 completion(Result.failure(error))

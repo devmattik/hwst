@@ -14,11 +14,10 @@ class Helper {
  
     static let zipFileURL = Helper.documentsURL.appendingPathComponent("classifier.zip")
     
-    class func decodeToZip(from base64String: String, completion: @escaping (Result<URL, Error>) -> Void) {
-        let zipFileURL = Helper.zipFileURL
-        debugPrint(zipFileURL)
+    class func decodeBase64String(from base64String: String,
+                                  completion: @escaping (Result<URL, Error>) -> Void) {
         
-        switch base64String.decodeToZipFile(url: zipFileURL) {
+        switch base64String.saveBase64StringToZipFile(url: Helper.zipFileURL) {
         case .success(let url):
             var fileURL: URL!
             do {

@@ -52,12 +52,12 @@ struct ClassifierAPIError: ClassifierError {
 }
 
 struct ClassifierBase64DecodeError: ClassifierError {
-    var message: String = "Something went wrong"
+    var message: String = "Base64 Decode Error"
     var error: Error? = nil
 }
 
 struct ClassifierReadDataError: ClassifierError {
-    var message: String = "Something went wrong"
+    var message: String = "Read Data from file"
     var error: Error? = nil
 }
 

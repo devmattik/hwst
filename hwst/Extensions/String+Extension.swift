@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    func decodeToZipFile(url: URL) -> Result<URL, ClassifierBase64DecodeError> {
+    func saveBase64StringToZipFile(url: URL) -> Result<URL, ClassifierBase64DecodeError> {
         guard let convertedData = Data(base64Encoded: self)
         else {
             let message = "Converting data error"
