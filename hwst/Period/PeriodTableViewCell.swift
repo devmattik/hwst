@@ -17,7 +17,14 @@ class PeriodTableViewCell: UITableViewCell {
     private let addressLabel = TextLabel()
     private let periodLabel = TextLabel()
     
-    private let offset: CGFloat = 16
+    private let wrapperView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    private let offset: CGFloat = 8
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,15 +42,21 @@ class PeriodTableViewCell: UITableViewCell {
         stackView.addArrangedSubview(addressLabel)
         stackView.addArrangedSubview(periodLabel)
         
-        contentView.addSubview(stackView)
+        wrapperView.addSubview(stackView)
+        contentView.addSubview(wrapperView)
     }
     
     private func initLayout() {
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: offset),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -offset),
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -offset)
+            wrapperView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            wrapperView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            wrapperView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            wrapperView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -offset/2),
+            
+            stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: offset),
+            stackView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: offset),
+            stackView.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: offset/2),
+            stackView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -offset/2)
         ])
     }
     

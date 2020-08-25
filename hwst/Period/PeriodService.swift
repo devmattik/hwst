@@ -24,9 +24,21 @@ class PeriodService {
     private var isFetching = false
     
     var onInserItems: ((_ indexes: [Int]) -> Void)?
+    var onReloadAllItems: (() -> Void)?
+    var onError: ((_ errorMessage: String) -> Void)?
     
     func start() {
         loadClassifier()
+    }
+    
+    func reStart() {
+        currentOffset = 0
+        periodAddresses.removeAll()
+        DispatchQueue.main.async { [weak self] in
+            self?.onReloadAllItems?()
+        }
+        
+        start()
     }
     
     func loadNextPage() {
@@ -41,6 +53,8 @@ class PeriodService {
                 self?.load(url: url)
             case .failure(let error):
                 debugPrint(error)
+                self?.onError?("Не удалось получить данные")
+                self?.loadPage()
             }
         }
     }
@@ -64,16 +78,17 @@ class PeriodService {
     private func loadPage() {
         isFetching = true
         
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            let savedPeriods = CoreDataManager.shared
-                                .periods(limit: strongSelf.limit,
-                                         offset: strongSelf.currentOffset)
-            
-            let periodAdressesModels = savedPeriods.map { PeriodAddressModel(from: $0) }
-            strongSelf.periodAddresses.append(contentsOf: periodAdressesModels)
-            strongSelf.currentOffset += strongSelf.limit
-            strongSelf.isFetching = false
+        let savedPeriods = CoreDataManager.shared.periods(limit: limit, offset: currentOffset)
+        if !savedPeriods.isEmpty {
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                    let periodAdressesModels = savedPeriods.map { PeriodAddressModel(from: $0) }
+                    strongSelf.periodAddresses.append(contentsOf: periodAdressesModels)
+                    strongSelf.currentOffset += strongSelf.limit
+                strongSelf.isFetching = false
+            }
+        } else {
+            isFetching = false
         }
     }
     

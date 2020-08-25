@@ -1,19 +1,21 @@
 //
-//  TextLabel.swift
+//  TitleLabel.swift
 //  hwst
 //
-//  Created by Антон Прохоров on 24.08.2020.
+//  Created by Антон Прохоров on 26.08.2020.
 //  Copyright © 2020 Anton Prokhorov. All rights reserved.
 //
 
 import UIKit
 
-class TextLabel: UILabel {
+class TitleLabel: UILabel {
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         textColor = .black
-        font = UIFont.systemFont(ofSize: 14)
+        font = UIFont.systemFont(ofSize: 20)
+        textAlignment = .center
+        numberOfLines = 2
     }
     
     required init?(coder: NSCoder) {

@@ -13,9 +13,11 @@ class PeriodTableView: UITableView {
         super.init(frame: .zero, style: .grouped)
         
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .white
+        backgroundColor = .lightGray
         rowHeight = UITableView.automaticDimension
         estimatedRowHeight = 140
+        separatorStyle = .none
+        sectionHeaderHeight = 4
         register(PeriodTableViewCell.self, forCellReuseIdentifier: PeriodTableViewCell.identifier)
     }
     

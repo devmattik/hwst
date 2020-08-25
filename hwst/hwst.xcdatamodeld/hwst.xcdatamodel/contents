@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Classifier" representedClassName="Classifier" syncable="YES" codeGenerationType="class">
+        <attribute name="file" optional="YES" attributeType="String"/>
+        <attribute name="ident" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="PeriodAddressEntity" representedClassName="PeriodAddressEntity" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="city" optional="YES" attributeType="String"/>
@@ -11,5 +17,6 @@
     </entity>
     <elements>
         <element name="PeriodAddressEntity" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Classifier" positionX="-63" positionY="36" width="128" height="103"/>
     </elements>
 </model>
