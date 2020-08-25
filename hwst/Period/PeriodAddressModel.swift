@@ -39,44 +39,32 @@ struct PeriodAddressModel: Decodable, Equatable {
 
         period = try values.decode(String.self, forKey: .period)
     }
-    
+}
+
+extension PeriodAddressModel {
     func formattedAddress() -> String {
+        address.trimmingCharacters(in: .whitespaces)
+    }
+    
+    func formattedHouse() -> String {
         let houseStr = "дом \(house)"
         let housingStr = housing.isEmpty ? "" : "корпус \(housing)"
         let letterStr = letter.isEmpty ? "" : "литер \(letter)"
         return houseStr + " " + housingStr + " " + letterStr
     }
     
-    func formettedPeriod() -> String {
-        let periodDates = period.split(separator: "-")
-        
-        guard let startDateString = periodDates.first?.replacingOccurrences(of: "г.", with: ""),
-            let endDateString = periodDates.last?.replacingOccurrences(of: "г.", with: ""),
-            let startDate = DateFormatter.serverDateFormat().date(from: String(startDateString)),
-            let endDate = DateFormatter.serverDateFormat().date(from: String(endDateString))
-        else {
-            return period
+    func formattedPeriod() -> String {
+        let periodDates = period.split(separator: "-").compactMap({ String($0).removeYearSymbol() })
+        if periodDates.count == 2 {
+            let startDate = periodDates[0]
+            let endDate = periodDates[1]
+            if let localStartDate = startDate.serverToLocalDate(),
+                let localEndDate = endDate.serverToLocalDate() {
+                
+                return localStartDate + " - " + localEndDate
+            }
         }
-    
-        let localStartDateString = DateFormatter.localDateFormat().string(from: startDate)
-        let localEndDateString = DateFormatter.localDateFormat().string(from: endDate)
-        
-        return localStartDateString + "-" + localEndDateString
-    }
-}
-
-extension DateFormatter {
-    class func serverDateFormat() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        return formatter
-    }
-    
-    class func localDateFormat() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        formatter.locale = Locale(identifier: "ru_RU")
-        return formatter
+            
+        return period
     }
 }

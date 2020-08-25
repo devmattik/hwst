@@ -9,15 +9,7 @@
 import UIKit
 
 class PeriodView: UIView {
-    let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .white
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
-        tableView.register(PeriodTableViewCell.self, forCellReuseIdentifier: PeriodTableViewCell.identifier)
-        return tableView
-    }()
+    let tableView = PeriodTableView()
     
     init() {
         super.init(frame: .zero)

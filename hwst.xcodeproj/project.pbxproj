@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5D0C232B24F4555D006B48B7 /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C232A24F4555D006B48B7 /* PeriodView.swift */; };
 		5D0C232E24F45D68006B48B7 /* TextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C232D24F45D68006B48B7 /* TextLabel.swift */; };
+		5D0C233024F5A04B006B48B7 /* PeriodStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C232F24F5A04B006B48B7 /* PeriodStackView.swift */; };
+		5D0C233224F5A4E7006B48B7 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233124F5A4E7006B48B7 /* DateFormatter+Extension.swift */; };
+		5D0C233424F5A847006B48B7 /* PeriodTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233324F5A847006B48B7 /* PeriodTableView.swift */; };
 		5DA26F6024F05E70006DEC00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */; };
 		5DA26F6424F05E70006DEC00 /* PeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */; };
 		5DA26F6C24F05E7A006DEC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 		20784805CCD833CBBA6B7576 /* Pods-hwst.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hwst.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hwst/Pods-hwst.debug.xcconfig"; sourceTree = "<group>"; };
 		5D0C232A24F4555D006B48B7 /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
 		5D0C232D24F45D68006B48B7 /* TextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabel.swift; sourceTree = "<group>"; };
+		5D0C232F24F5A04B006B48B7 /* PeriodStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodStackView.swift; sourceTree = "<group>"; };
+		5D0C233124F5A4E7006B48B7 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		5D0C233324F5A847006B48B7 /* PeriodTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTableView.swift; sourceTree = "<group>"; };
 		5DA26F5C24F05E70006DEC00 /* HWST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				5D0C232D24F45D68006B48B7 /* TextLabel.swift */,
+				5D0C232F24F5A04B006B48B7 /* PeriodStackView.swift */,
+				5D0C233324F5A847006B48B7 /* PeriodTableView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -162,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				5DA26F7A24F2B7FB006DEC00 /* String+Extension.swift */,
+				5D0C233124F5A4E7006B48B7 /* DateFormatter+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,10 +334,13 @@
 				5DA26F7B24F2B7FB006DEC00 /* String+Extension.swift in Sources */,
 				5D0C232B24F4555D006B48B7 /* PeriodView.swift in Sources */,
 				5DA26F9724F4427D006DEC00 /* ClassifierModel.swift in Sources */,
+				5D0C233024F5A04B006B48B7 /* PeriodStackView.swift in Sources */,
 				5DA26FA024F44288006DEC00 /* PeriodAPI.swift in Sources */,
+				5D0C233424F5A847006B48B7 /* PeriodTableView.swift in Sources */,
 				5DA26F9E24F44288006DEC00 /* PeriodAddressModel.swift in Sources */,
 				5DA26F9F24F44288006DEC00 /* PeriodService.swift in Sources */,
 				5DA26FA124F44288006DEC00 /* PeriodTableViewCell.swift in Sources */,
+				5D0C233224F5A4E7006B48B7 /* DateFormatter+Extension.swift in Sources */,
 				5DA26F9924F4427D006DEC00 /* ClassifierAPI.swift in Sources */,
 				5DA26FA924F44D44006DEC00 /* hwst.xcdatamodeld in Sources */,
 				5D0C232E24F45D68006B48B7 /* TextLabel.swift in Sources */,

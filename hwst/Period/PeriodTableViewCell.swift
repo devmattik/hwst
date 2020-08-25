@@ -11,20 +11,13 @@ import UIKit
 class PeriodTableViewCell: UITableViewCell {
     static let identifier = "PeriodTableViewCell"
     
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .fill
-        stackView.spacing = 8
-        return stackView
-    }()
-    
+    private let stackView = PeriodStackView()
     private let cityLabel = TextLabel()
     private let streetLabel = TextLabel()
     private let addressLabel = TextLabel()
     private let periodLabel = TextLabel()
+    
+    private let offset: CGFloat = 16
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -36,28 +29,29 @@ class PeriodTableViewCell: UITableViewCell {
     private func initUI() {
         backgroundColor = .clear
         selectionStyle = .none
-        contentView.addSubview(stackView)
-        
+    
         stackView.addArrangedSubview(cityLabel)
         stackView.addArrangedSubview(streetLabel)
         stackView.addArrangedSubview(addressLabel)
         stackView.addArrangedSubview(periodLabel)
+        
+        contentView.addSubview(stackView)
     }
     
     private func initLayout() {
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: offset),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -offset),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -offset)
         ])
     }
     
     func configure(with model: PeriodAddressModel ) {
         cityLabel.text = model.city
-        streetLabel.text = model.address
-        addressLabel.text = model.formattedAddress()
-        periodLabel.text = model.formettedPeriod()
+        streetLabel.text = model.formattedAddress()
+        addressLabel.text = model.formattedHouse()
+        periodLabel.text = model.formattedPeriod()
     }
     
     required init?(coder: NSCoder) {

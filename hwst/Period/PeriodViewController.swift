@@ -10,7 +10,6 @@ import UIKit
 
 class PeriodViewController: UIViewController {
 
-    private let clasifierService = ClassifierService()
     private let periodsService = PeriodService()
     
     private let mainView = PeriodView()
@@ -18,22 +17,15 @@ class PeriodViewController: UIViewController {
     
     override func loadView() {
         view = mainView
-        
-        tableView.dataSource = self
-        tableView.delegate = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        clasifierService.load() { [weak self] result in
-            switch result {
-            case .success(let url):
-                self?.periodsService.load(url: url)
-            case .failure(let error):
-                debugPrint(error)
-            }
-        }
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        periodsService.start()
         
         periodsService.onInserItems = { [weak self] indexes in
             guard let strongSelf = self else { return }
@@ -72,9 +64,7 @@ extension PeriodViewController: UITableViewDelegate {
         let actualPosition = scrollView.contentOffset.y;
         let contentHeight = scrollView.contentSize.height - (scrollView.frame.height * 2);
         if actualPosition >= contentHeight {
-            periodsService.loadPage()
+            periodsService.loadNextPage()
          }
     }
 }
-
-

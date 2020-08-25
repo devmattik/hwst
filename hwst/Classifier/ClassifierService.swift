@@ -11,10 +11,10 @@ import Zip
 
 class ClassifierService {
     
-    private let api = ClassifierAPI()
+    private let classifierAPI = ClassifierAPI()
     
     func load(completion: @escaping (Result<URL, Error>) -> Void) {
-        api.load { result in
+        classifierAPI.load { result in
             switch result {
             case .success(let classifier):
                 Helper.decodeToZip(from: classifier.file, completion: completion)

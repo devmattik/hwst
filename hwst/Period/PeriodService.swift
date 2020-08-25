@@ -8,34 +8,46 @@
 
 import Foundation
 
-class PeriodService: NSObject {
+class PeriodService {
     
-    private let api = PeriodAPI()
+    private let classifierService = ClassifierService()
+    private let periodAPI = PeriodAPI()
     
     private var periodAddresses = [PeriodAddressModel](){
         didSet {
-            let currentCount = periodAddresses.count - limit
-            let indexes = currentCount > 0
-                ? Array(currentCount ..< periodAddresses.count)
-                : Array(0 ..< periodAddresses.count)
-            if !indexes.isEmpty {
-                onInserItems?(indexes)
-            }
+            onUpdatePeriodAdresses()
         }
     }
     
     private let limit = 20
     private var currentOffset = 0
-    
     private var isFetching = false
     
     var onInserItems: ((_ indexes: [Int]) -> Void)?
     
-    /// Initial load
-    /// - Parameter url: Url for load data
-    func load(url: URL) {
+    func start() {
+        loadClassifier()
+    }
+    
+    func loadNextPage() {
+        guard !isFetching, !periodAddresses.isEmpty else { return }
+        loadPage()
+    }
+    
+    private func loadClassifier() {
+        classifierService.load() { [weak self] result in
+            switch result {
+            case .success(let url):
+                self?.load(url: url)
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
+    }
+    
+    private func load(url: URL) {
         currentOffset = 0
-        api.loadPeriods(from: url) { [weak self] result in
+        periodAPI.loadPeriods(from: url) { [weak self] result in
             switch result {
             case .success(let periods):
                 if periods != self?.periodAddresses {
@@ -49,10 +61,7 @@ class PeriodService: NSObject {
         }
     }
     
-    /// Load current page from Database
-    /// Used for infinity scroll
-    func loadPage() {
-        guard !isFetching else { return }
+    private func loadPage() {
         isFetching = true
         
         DispatchQueue.main.async { [weak self] in
@@ -65,6 +74,16 @@ class PeriodService: NSObject {
             strongSelf.periodAddresses.append(contentsOf: periodAdressesModels)
             strongSelf.currentOffset += strongSelf.limit
             strongSelf.isFetching = false
+        }
+    }
+    
+    private func onUpdatePeriodAdresses() {
+        let currentCount = periodAddresses.count - limit
+        let indexes = currentCount > 0
+            ? Array(currentCount ..< periodAddresses.count)
+            : Array(0 ..< periodAddresses.count)
+        if !indexes.isEmpty {
+            onInserItems?(indexes)
         }
     }
     

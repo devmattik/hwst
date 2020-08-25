@@ -14,17 +14,16 @@ struct Storage {
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "hwst")
-        container.viewContext.mergePolicy = NSMergePolicy(merge: NSMergePolicyType.mergeByPropertyObjectTrumpMergePolicyType)
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.viewContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
+        container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
                 debugPrint("CoreData: Unresolved error \(error), \(error.userInfo)")
             }
-        })
+        }
         return container
     }()
 
     // MARK: - Core Data Saving support
-    
     var context: NSManagedObjectContext {
         mutating get {
             return persistentContainer.viewContext

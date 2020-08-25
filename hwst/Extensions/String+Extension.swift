@@ -25,4 +25,15 @@ extension String {
         
         return Result.success(url)
     }
+    
+    func removeYearSymbol() -> String {
+        return self.replacingOccurrences(of: "г.", with: "")
+    }
+    
+    func serverToLocalDate() -> String? {
+        guard let date = DateFormatter.serverDateFormat().date(from: self)
+        else { return nil }
+        
+        return DateFormatter.localDateFormat().string(from: date).removeYearSymbol()
+    }
 }
