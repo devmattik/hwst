@@ -11,16 +11,8 @@ import UIKit
 class PeriodView: UIView {
     
     private let titleLabel = TitleLabel()
-    
     let tableView = PeriodTableView()
-    
-    let spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .whiteLarge)
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.color = .darkGray
-        spinner.hidesWhenStopped = true
-        return spinner
-    }()
+    let spinner = SpinnerView()
     
     init() {
         super.init(frame: .zero)
