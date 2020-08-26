@@ -31,7 +31,7 @@ extension PeriodAddressEntity {
             }
         })
         
-        CoreDataManager.shared.saveContext()
+        _ = Storage.shared.saveContext()
     }
     
     class func periods(limit: Int = 20, offset: Int) -> [PeriodAddressEntity] {
@@ -51,10 +51,18 @@ extension PeriodAddressEntity {
     }
     
     class func clearPeriods() -> Bool {
-        if CoreDataManager.shared.deleteData(entity: "PeriodAddressEntity") {
-            CoreDataManager.shared.saveContext()
+        if deleteData(entity: "PeriodAddressEntity") {
+            _ = Storage.shared.saveContext()
             return true
         }
         return false
+    }
+    
+    class func deleteData(entity:String) -> Bool{
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let deleteAllRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do { try Storage.shared.context.execute(deleteAllRequest)}
+        catch { debugPrint(error); return false }
+        return true
     }
 }

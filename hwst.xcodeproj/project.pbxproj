@@ -15,13 +15,14 @@
 		5D0C233624F5B69B006B48B7 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233524F5B69B006B48B7 /* TitleLabel.swift */; };
 		5D0C233924F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233824F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift */; };
 		5D0C233E24F5D0F6006B48B7 /* hwst.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233C24F5D0F6006B48B7 /* hwst.xcdatamodeld */; };
+		5D0C234024F5E4E9006B48B7 /* ClassifierError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233F24F5E4E9006B48B7 /* ClassifierError.swift */; };
+		5D0C234224F5E8EA006B48B7 /* FileDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C234124F5E8EA006B48B7 /* FileDecoderService.swift */; };
 		5DA26F6024F05E70006DEC00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */; };
 		5DA26F6424F05E70006DEC00 /* PeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */; };
 		5DA26F6C24F05E7A006DEC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */; };
 		5DA26F6F24F05E7A006DEC00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA26F6D24F05E7A006DEC00 /* LaunchScreen.storyboard */; };
 		5DA26F7B24F2B7FB006DEC00 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7A24F2B7FB006DEC00 /* String+Extension.swift */; };
 		5DA26F7D24F2B855006DEC00 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F7C24F2B855006DEC00 /* Helper.swift */; };
-		5DA26F9024F441B0006DEC00 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8E24F441B0006DEC00 /* CoreDataManager.swift */; };
 		5DA26F9124F441B0006DEC00 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F8F24F441B0006DEC00 /* Storage.swift */; };
 		5DA26F9724F4427D006DEC00 /* ClassifierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9424F4427D006DEC00 /* ClassifierModel.swift */; };
 		5DA26F9824F4427D006DEC00 /* ClassifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9524F4427D006DEC00 /* ClassifierService.swift */; };
@@ -43,6 +44,8 @@
 		5D0C233524F5B69B006B48B7 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		5D0C233824F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeriodAddressEntity+Extension.swift"; sourceTree = "<group>"; };
 		5D0C233D24F5D0F6006B48B7 /* hwst.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hwst.xcdatamodel; sourceTree = "<group>"; };
+		5D0C233F24F5E4E9006B48B7 /* ClassifierError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierError.swift; sourceTree = "<group>"; };
+		5D0C234124F5E8EA006B48B7 /* FileDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDecoderService.swift; sourceTree = "<group>"; };
 		5DA26F5C24F05E70006DEC00 /* HWST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +54,6 @@
 		5DA26F7024F05E7A006DEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DA26F7A24F2B7FB006DEC00 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5DA26F7C24F2B855006DEC00 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		5DA26F8E24F441B0006DEC00 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5DA26F8F24F441B0006DEC00 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		5DA26F9424F4427D006DEC00 /* ClassifierModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierModel.swift; sourceTree = "<group>"; };
 		5DA26F9524F4427D006DEC00 /* ClassifierService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierService.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				5DA26FA324F442DE006DEC00 /* Helpers */,
 				5DA26FA224F442CE006DEC00 /* Extensions */,
 				5DA26F8C24F44140006DEC00 /* SupportedFiles */,
+				5D0C234124F5E8EA006B48B7 /* FileDecoderService.swift */,
 			);
 			path = hwst;
 			sourceTree = "<group>";
@@ -151,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				5D0C233724F5C89C006B48B7 /* Entities */,
-				5DA26F8E24F441B0006DEC00 /* CoreDataManager.swift */,
 				5DA26F8F24F441B0006DEC00 /* Storage.swift */,
 			);
 			path = CoreData;
@@ -163,6 +165,7 @@
 				5DA26F9624F4427D006DEC00 /* ClassifierAPI.swift */,
 				5DA26F9424F4427D006DEC00 /* ClassifierModel.swift */,
 				5DA26F9524F4427D006DEC00 /* ClassifierService.swift */,
+				5D0C233F24F5E4E9006B48B7 /* ClassifierError.swift */,
 			);
 			path = Classifier;
 			sourceTree = "<group>";
@@ -339,15 +342,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D0C234224F5E8EA006B48B7 /* FileDecoderService.swift in Sources */,
 				5DA26F6424F05E70006DEC00 /* PeriodViewController.swift in Sources */,
 				5DA26F9824F4427D006DEC00 /* ClassifierService.swift in Sources */,
 				5DA26F9124F441B0006DEC00 /* Storage.swift in Sources */,
 				5DA26F7D24F2B855006DEC00 /* Helper.swift in Sources */,
-				5DA26F9024F441B0006DEC00 /* CoreDataManager.swift in Sources */,
 				5DA26F6024F05E70006DEC00 /* AppDelegate.swift in Sources */,
 				5DA26F7B24F2B7FB006DEC00 /* String+Extension.swift in Sources */,
 				5D0C232B24F4555D006B48B7 /* PeriodView.swift in Sources */,
 				5DA26F9724F4427D006DEC00 /* ClassifierModel.swift in Sources */,
+				5D0C234024F5E4E9006B48B7 /* ClassifierError.swift in Sources */,
 				5D0C233024F5A04B006B48B7 /* PeriodStackView.swift in Sources */,
 				5DA26FA024F44288006DEC00 /* PeriodAPI.swift in Sources */,
 				5D0C233924F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift in Sources */,

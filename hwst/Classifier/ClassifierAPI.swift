@@ -10,19 +10,19 @@ import Foundation
 import Alamofire
 
 class ClassifierAPI {
-    typealias ClassifierAPIResult = Result<ClassifierModel, ClassifierAPIError>
+    typealias ClassifierAPIResult = Result<ClassifierModel, ClassifierError>
     
     private static let urlString = "https://api.gu.spb.ru/UniversalMobileService/classifiers/downloadClassifiers?classifiersId=4"
     let url = URL(string: ClassifierAPI.urlString)!
         
-    func load(completion: @escaping (ClassifierAPIResult) -> Void) {
+    func load(completion: @escaping (Result<ClassifierModel, ClassifierError>) -> Void) {
         AF.request(url, method: .get)
             .responseDecodable(of: ClassifierResponse.self) { response in
                 switch response.result {
                 case .success(let classifierResponse):
                     guard let classifier = classifierResponse.responseData.classifiers.first
                     else {
-                        let classifierError = ClassifierAPIError(message: Constants.isEmpty.rawValue)
+                        let classifierError = ClassifierError(message: Constants.isEmpty.rawValue)
                         let result = ClassifierAPIResult.failure(classifierError)
                         completion(result)
                         return
@@ -33,7 +33,7 @@ class ClassifierAPI {
                     let result = ClassifierAPIResult.success(classifier)
                     completion(result)
                 case .failure(let error):
-                    let classifierError = ClassifierAPIError(message: Constants.serverError.rawValue, error: error)
+                    let classifierError = ClassifierError(message: Constants.serverError.rawValue, error: error)
                     let result = ClassifierAPIResult.failure(classifierError)
                     completion(result)
                 }
@@ -46,21 +46,4 @@ class ClassifierAPI {
     }
 }
 
-struct ClassifierAPIError: ClassifierError {
-    var message: String = "Something went wrong"
-    var error: AFError? = nil
-}
 
-struct ClassifierBase64DecodeError: ClassifierError {
-    var message: String = "Base64 Decode Error"
-    var error: Error? = nil
-}
-
-struct ClassifierReadDataError: ClassifierError {
-    var message: String = "Read Data from file"
-    var error: Error? = nil
-}
-
-protocol ClassifierError: Error {
-    var message: String { get set }
-}

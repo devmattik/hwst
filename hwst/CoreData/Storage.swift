@@ -34,7 +34,7 @@ struct Storage {
         case saved, rolledBack, hasNoChanges
     }
     
-    mutating func saveContext () -> SaveStatus {
+    mutating func saveContext() -> SaveStatus {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

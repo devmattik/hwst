@@ -9,26 +9,8 @@
 import Foundation
 
 extension String {
-    func saveBase64StringToZipFile(url: URL) -> Result<URL, ClassifierBase64DecodeError> {
-        guard let convertedData = Data(base64Encoded: self)
-        else {
-            let message = "Converting data error"
-            return Result.failure(ClassifierBase64DecodeError(message: message))
-        }
-
-        do {
-            try convertedData.write(to: url)
-        } catch {
-            let message = "Writing data to file error"
-            return Result.failure(ClassifierBase64DecodeError(message: message, error: error))
-        }
-        
-        return Result.success(url)
-    }
     
-    func removeYearSymbol() -> String {
-        return self.replacingOccurrences(of: "г.", with: "")
-    }
+    func removeYearSymbol() -> String { return self.replacingOccurrences(of: "г.", with: "") }
     
     func serverToLocalDate() -> String? {
         guard let date = DateFormatter.serverDateFormat().date(from: self)
