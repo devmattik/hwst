@@ -22,7 +22,7 @@ class ClassifierAPI {
                 case .success(let classifierResponse):
                     guard let classifier = classifierResponse.responseData.classifiers.first
                     else {
-                        let classifierError = ClassifierError(message: Constants.isEmpty.rawValue)
+                        let classifierError = ClassifierError(message: GSC.emptyClassifier)
                         let result = ClassifierAPIResult.failure(classifierError)
                         completion(result)
                         return
@@ -33,17 +33,10 @@ class ClassifierAPI {
                     let result = ClassifierAPIResult.success(classifier)
                     completion(result)
                 case .failure(let error):
-                    let classifierError = ClassifierError(message: Constants.serverError.rawValue, error: error)
+                    let classifierError = ClassifierError(message: GSC.serverError, error: error)
                     let result = ClassifierAPIResult.failure(classifierError)
                     completion(result)
                 }
         }
     }
-    
-    private enum Constants: String {
-        case isEmpty = "Classifiers is Empty"
-        case serverError = "Server error"
-    }
 }
-
-

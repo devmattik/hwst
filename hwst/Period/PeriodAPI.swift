@@ -11,12 +11,12 @@ import Alamofire
 
 class PeriodAPI {
     
-    func loadPeriods(from filePath: URL, completion: @escaping (Result<[PeriodAddressModel], AFError>) -> Void) {
+    func loadPeriods(from filePath: URL, completion: @escaping (Result<[PeriodModel], AFError>) -> Void) {
         let url = URL(fileURLWithPath: filePath.absoluteString)
 
         AF.request(url, method: .get)
-        .responseDecodable(of: [PeriodAddressModel].self) { response in
-            completion(response.result)
-        }
+            .responseDecodable(of: [PeriodModel].self) { response in
+                completion(response.result)
+            }
     }
 }

@@ -12,12 +12,13 @@
 		5D0C233024F5A04B006B48B7 /* PeriodStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C232F24F5A04B006B48B7 /* PeriodStackView.swift */; };
 		5D0C233224F5A4E7006B48B7 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233124F5A4E7006B48B7 /* DateFormatter+Extension.swift */; };
 		5D0C233424F5A847006B48B7 /* PeriodTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233324F5A847006B48B7 /* PeriodTableView.swift */; };
-		5D0C233624F5B69B006B48B7 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233524F5B69B006B48B7 /* TitleLabel.swift */; };
 		5D0C233924F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233824F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift */; };
 		5D0C233E24F5D0F6006B48B7 /* hwst.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233C24F5D0F6006B48B7 /* hwst.xcdatamodeld */; };
 		5D0C234024F5E4E9006B48B7 /* ClassifierError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C233F24F5E4E9006B48B7 /* ClassifierError.swift */; };
 		5D0C234224F5E8EA006B48B7 /* FileDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C234124F5E8EA006B48B7 /* FileDecoderService.swift */; };
 		5D0C234424F5EAB7006B48B7 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C234324F5EAB7006B48B7 /* SpinnerView.swift */; };
+		5D0C234624F84190006B48B7 /* PeriodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C234524F84190006B48B7 /* PeriodViewModel.swift */; };
+		5D0C234924F8531F006B48B7 /* GlobalStringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C234824F8531F006B48B7 /* GlobalStringConstants.swift */; };
 		5DA26F6024F05E70006DEC00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */; };
 		5DA26F6424F05E70006DEC00 /* PeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */; };
 		5DA26F6C24F05E7A006DEC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA26F6B24F05E7A006DEC00 /* Assets.xcassets */; };
@@ -28,7 +29,7 @@
 		5DA26F9724F4427D006DEC00 /* ClassifierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9424F4427D006DEC00 /* ClassifierModel.swift */; };
 		5DA26F9824F4427D006DEC00 /* ClassifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9524F4427D006DEC00 /* ClassifierService.swift */; };
 		5DA26F9924F4427D006DEC00 /* ClassifierAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9624F4427D006DEC00 /* ClassifierAPI.swift */; };
-		5DA26F9E24F44288006DEC00 /* PeriodAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9A24F44288006DEC00 /* PeriodAddressModel.swift */; };
+		5DA26F9E24F44288006DEC00 /* PeriodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9A24F44288006DEC00 /* PeriodModel.swift */; };
 		5DA26F9F24F44288006DEC00 /* PeriodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9B24F44288006DEC00 /* PeriodService.swift */; };
 		5DA26FA024F44288006DEC00 /* PeriodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9C24F44288006DEC00 /* PeriodAPI.swift */; };
 		5DA26FA124F44288006DEC00 /* PeriodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA26F9D24F44288006DEC00 /* PeriodTableViewCell.swift */; };
@@ -42,12 +43,13 @@
 		5D0C232F24F5A04B006B48B7 /* PeriodStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodStackView.swift; sourceTree = "<group>"; };
 		5D0C233124F5A4E7006B48B7 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		5D0C233324F5A847006B48B7 /* PeriodTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodTableView.swift; sourceTree = "<group>"; };
-		5D0C233524F5B69B006B48B7 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		5D0C233824F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeriodAddressEntity+Extension.swift"; sourceTree = "<group>"; };
 		5D0C233D24F5D0F6006B48B7 /* hwst.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hwst.xcdatamodel; sourceTree = "<group>"; };
 		5D0C233F24F5E4E9006B48B7 /* ClassifierError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierError.swift; sourceTree = "<group>"; };
 		5D0C234124F5E8EA006B48B7 /* FileDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDecoderService.swift; sourceTree = "<group>"; };
 		5D0C234324F5EAB7006B48B7 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		5D0C234524F84190006B48B7 /* PeriodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodViewModel.swift; sourceTree = "<group>"; };
+		5D0C234824F8531F006B48B7 /* GlobalStringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStringConstants.swift; sourceTree = "<group>"; };
 		5DA26F5C24F05E70006DEC00 /* HWST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DA26F6324F05E70006DEC00 /* PeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		5DA26F9424F4427D006DEC00 /* ClassifierModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierModel.swift; sourceTree = "<group>"; };
 		5DA26F9524F4427D006DEC00 /* ClassifierService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierService.swift; sourceTree = "<group>"; };
 		5DA26F9624F4427D006DEC00 /* ClassifierAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierAPI.swift; sourceTree = "<group>"; };
-		5DA26F9A24F44288006DEC00 /* PeriodAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodAddressModel.swift; sourceTree = "<group>"; };
+		5DA26F9A24F44288006DEC00 /* PeriodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodModel.swift; sourceTree = "<group>"; };
 		5DA26F9B24F44288006DEC00 /* PeriodService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodService.swift; sourceTree = "<group>"; };
 		5DA26F9C24F44288006DEC00 /* PeriodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodAPI.swift; sourceTree = "<group>"; };
 		5DA26F9D24F44288006DEC00 /* PeriodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,7 +93,6 @@
 		5D0C232C24F45D44006B48B7 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				5D0C233524F5B69B006B48B7 /* TitleLabel.swift */,
 				5D0C232D24F45D68006B48B7 /* TextLabel.swift */,
 				5D0C232F24F5A04B006B48B7 /* PeriodStackView.swift */,
 				5D0C233324F5A847006B48B7 /* PeriodTableView.swift */,
@@ -106,6 +107,14 @@
 				5D0C233824F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		5D0C234724F8530B006B48B7 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5D0C234824F8531F006B48B7 /* GlobalStringConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		5DA26F5324F05E6F006DEC00 = {
@@ -130,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				5DA26F5F24F05E70006DEC00 /* AppDelegate.swift */,
+				5D0C234724F8530B006B48B7 /* Constants */,
 				5DA26F9324F44252006DEC00 /* Period */,
 				5DA26F9224F44244006DEC00 /* Classifier */,
 				5DA26F8D24F44190006DEC00 /* CoreData */,
@@ -180,8 +190,9 @@
 				5D0C232A24F4555D006B48B7 /* PeriodView.swift */,
 				5DA26F9C24F44288006DEC00 /* PeriodAPI.swift */,
 				5DA26F9B24F44288006DEC00 /* PeriodService.swift */,
-				5DA26F9A24F44288006DEC00 /* PeriodAddressModel.swift */,
+				5DA26F9A24F44288006DEC00 /* PeriodModel.swift */,
 				5DA26F9D24F44288006DEC00 /* PeriodTableViewCell.swift */,
+				5D0C234524F84190006B48B7 /* PeriodViewModel.swift */,
 			);
 			path = Period;
 			sourceTree = "<group>";
@@ -356,13 +367,14 @@
 				5D0C232B24F4555D006B48B7 /* PeriodView.swift in Sources */,
 				5DA26F9724F4427D006DEC00 /* ClassifierModel.swift in Sources */,
 				5D0C234024F5E4E9006B48B7 /* ClassifierError.swift in Sources */,
+				5D0C234924F8531F006B48B7 /* GlobalStringConstants.swift in Sources */,
 				5D0C233024F5A04B006B48B7 /* PeriodStackView.swift in Sources */,
 				5DA26FA024F44288006DEC00 /* PeriodAPI.swift in Sources */,
 				5D0C233924F5C8CF006B48B7 /* PeriodAddressEntity+Extension.swift in Sources */,
 				5D0C233424F5A847006B48B7 /* PeriodTableView.swift in Sources */,
+				5D0C234624F84190006B48B7 /* PeriodViewModel.swift in Sources */,
 				5D0C233E24F5D0F6006B48B7 /* hwst.xcdatamodeld in Sources */,
-				5DA26F9E24F44288006DEC00 /* PeriodAddressModel.swift in Sources */,
-				5D0C233624F5B69B006B48B7 /* TitleLabel.swift in Sources */,
+				5DA26F9E24F44288006DEC00 /* PeriodModel.swift in Sources */,
 				5DA26F9F24F44288006DEC00 /* PeriodService.swift in Sources */,
 				5DA26FA124F44288006DEC00 /* PeriodTableViewCell.swift in Sources */,
 				5D0C233224F5A4E7006B48B7 /* DateFormatter+Extension.swift in Sources */,

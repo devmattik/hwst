@@ -9,13 +9,12 @@
 import Foundation
 
 extension String {
-    
     func removeYearSymbol() -> String { return self.replacingOccurrences(of: "г.", with: "") }
     
-    func serverToLocalDate() -> String? {
-        guard let date = DateFormatter.serverDateFormat().date(from: self)
+    func formatStringDate(from serverDateFormatter: DateFormatter, to localDateFormatter: DateFormatter) -> String? {
+        guard let date = serverDateFormatter.date(from: self)
         else { return nil }
         
-        return DateFormatter.localDateFormat().string(from: date).removeYearSymbol()
+        return localDateFormatter.string(from: date).removeYearSymbol()
     }
 }

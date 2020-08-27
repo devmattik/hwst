@@ -24,7 +24,10 @@ class PeriodTableViewCell: UITableViewCell {
         return view
     }()
     
-    private let offset: CGFloat = 8
+    private let sideOffset: CGFloat = 8
+    private let topAndBottomOffest: CGFloat = 4
+    
+    private let wrapperBottomOffest: CGFloat = 2
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -48,23 +51,28 @@ class PeriodTableViewCell: UITableViewCell {
     
     private func initLayout() {
         NSLayoutConstraint.activate([
-            wrapperView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            wrapperView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            wrapperView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            wrapperView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2),
+            wrapperView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            wrapperView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            wrapperView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            wrapperView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
+                                                constant: -wrapperBottomOffest),
             
-            stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: offset),
-            stackView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: offset),
-            stackView.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: offset/2),
-            stackView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -offset/2)
+            stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor,
+                                               constant: sideOffset),
+            stackView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor,
+                                                constant: -sideOffset),
+            stackView.topAnchor.constraint(equalTo: wrapperView.topAnchor,
+                                           constant: topAndBottomOffest),
+            stackView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor,
+                                              constant: -topAndBottomOffest)
         ])
     }
     
-    func configure(with model: PeriodAddressModel ) {
+    func configure(with model: PeriodViewModel ) {
         cityLabel.text = model.city
-        streetLabel.text = model.formattedAddress()
-        addressLabel.text = model.formattedHouse()
-        periodLabel.text = model.formattedPeriod()
+        streetLabel.text = model.address
+        addressLabel.text = model.formattedHouse
+        periodLabel.text = model.formattedPeriod
     }
     
     required init?(coder: NSCoder) {

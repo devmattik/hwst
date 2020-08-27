@@ -10,10 +10,7 @@ import Foundation
 import Zip
 
 class FileDecoderService {
-    private let convertedDataErrorMessage = "Converting data error"
-    private let writeToFileErrorMessage = "Writing data to file error"
-    private let unzipFileErrorMessage = "Unzip file error"
-        
+            
     func decode(_ base64string:String, completion: @escaping (Result<URL, ClassifierError>) -> Void) {
         
         let saveToFileResult = save(base64String: base64string, toFile: Helper.zipFileURL)
@@ -28,13 +25,13 @@ class FileDecoderService {
     private func save(base64String: String, toFile url: URL) -> Result<URL, ClassifierError> {
         guard let convertedData = Data(base64Encoded: base64String)
         else {
-            return Result.failure(ClassifierError(message: convertedDataErrorMessage))
+            return Result.failure(ClassifierError(message: GSC.convertedDataErrorMessage))
         }
 
         do {
             try convertedData.write(to: url)
         } catch {
-            return Result.failure(ClassifierError(message: writeToFileErrorMessage, error: error))
+            return Result.failure(ClassifierError(message: GSC.writeToFileErrorMessage, error: error))
         }
         
         return Result.success(url)
@@ -57,7 +54,7 @@ class FileDecoderService {
                                 fileURL = fileOutpuURL
                               })
         } catch {
-            completion(Result.failure(ClassifierError(message: unzipFileErrorMessage,
+            completion(Result.failure(ClassifierError(message: GSC.unzipFileErrorMessage,
                                                               error: error)))
         }
     }

@@ -22,6 +22,7 @@ class PeriodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = GSC.periodTitle
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -29,13 +30,15 @@ class PeriodViewController: UIViewController {
         
         startSpinner()
         
-        periodsService.onInserItems = { [weak self] indexes in
-            guard let strongSelf = self else { return }
-            let indexPaths = indexes.map({ IndexPath(row: $0, section: 0) })
-            UIView.performWithoutAnimation {
-                strongSelf.tableView.insertRows(at: indexPaths, with: .none)
+        periodsService.onInserItems = { indexes in
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                let indexPaths = indexes.map({ IndexPath(row: $0, section: 0) })
+                UIView.performWithoutAnimation {
+                    strongSelf.tableView.insertRows(at: indexPaths, with: .none)
+                }
+                strongSelf.stopSpinner()
             }
-            strongSelf.stopSpinner()
         }
         
         periodsService.onReloadAllItems = { [weak self] in
@@ -57,9 +60,9 @@ class PeriodViewController: UIViewController {
     }
     
     private func showError(message: String) {
-        let alert = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
-        let retryAction = UIAlertAction(title: "Повторить", style: .default, handler: { [weak self] _ in
+        let alert = UIAlertController(title: GSC.errorTitle, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: GSC.cancel, style: .destructive, handler: nil)
+        let retryAction = UIAlertAction(title: GSC.retry, style: .default, handler: { [weak self] _ in
             self?.startSpinner()
             self?.periodsService.reStart()
         })

@@ -13,7 +13,7 @@ class PeriodService {
     private let classifierService = ClassifierService()
     private let periodAPI = PeriodAPI()
     
-    private var periodAddresses = [PeriodAddressModel](){
+    private var periodAddresses = [PeriodModel](){
         didSet {
             onUpdatePeriodAdresses()
         }
@@ -53,7 +53,7 @@ class PeriodService {
                 self?.load(url: url)
             case .failure(let error):
                 debugPrint(error)
-                self?.onError?("Не удалось получить данные")
+                self?.onError?(GSC.dataErrorMessage)
                 self?.loadPage()
             }
         }
@@ -78,15 +78,13 @@ class PeriodService {
     private func loadPage() {
         isFetching = true
         
-        let savedPeriods = PeriodAddressEntity.periods(limit: limit, offset: currentOffset)
+        let savedPeriods = PeriodEntity.periods(limit: limit, offset: currentOffset)
         if !savedPeriods.isEmpty {
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
-                    let periodAdressesModels = savedPeriods.map { PeriodAddressModel(from: $0) }
-                    strongSelf.periodAddresses.append(contentsOf: periodAdressesModels)
-                    strongSelf.currentOffset += strongSelf.limit
-                strongSelf.isFetching = false
-            }
+            
+            let periodModels = savedPeriods.map { PeriodModel(from: $0) }
+            periodAddresses.append(contentsOf: periodModels)
+            currentOffset += limit
+            isFetching = false
         } else {
             isFetching = false
         }
@@ -102,10 +100,10 @@ class PeriodService {
         }
     }
     
-    private func savePeriods(_ periods: [PeriodAddressModel]) {
+    private func savePeriods(_ periods: [PeriodModel]) {
         debugPrint("Save periods count ", periods.count)
-        _ = PeriodAddressEntity.clearPeriods()
-        PeriodAddressEntity.insert(periods: periods)
+        _ = PeriodEntity.clearPeriods()
+        PeriodEntity.insert(periods: periods)
     }
 }
 
@@ -115,11 +113,11 @@ extension PeriodService {
         return periodAddresses.count
     }
     
-    func item(at index: Int) -> PeriodAddressModel? {
+    func item(at index: Int) -> PeriodViewModel? {
         guard index < numberOfItems() else {
             assertionFailure("Index can not be greater than numberOfItems count")
             return nil
         }
-        return periodAddresses[index]
+        return PeriodViewModel(model: periodAddresses[index])
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PeriodAddressEntity+Extension.swift
+//  PeriodEntity+Extension.swift
 //  hwst
 //
 //  Created by Антон Прохоров on 26.08.2020.
@@ -9,23 +9,23 @@
 import Foundation
 import CoreData
 
-extension PeriodAddressEntity {
-    func map(with periodAddress: PeriodAddressModel) {
-        city = periodAddress.city
-        address = periodAddress.address
-        house = periodAddress.house
-        housing = periodAddress.housing
-        letter = periodAddress.letter
-        period = periodAddress.period
+extension PeriodEntity {
+    func map(with periodModel: PeriodModel) {
+        city = periodModel.city
+        address = periodModel.address
+        house = periodModel.house
+        housing = periodModel.housing
+        letter = periodModel.letter
+        period = periodModel.period
     }
     
-    class func insert(periods: [PeriodAddressModel]) {
+    class func insert(periods: [PeriodModel]) {
         var sortIndex: Int64 = 0
-        periods.forEach({ periodAddress  in
-            if let newPeriod =  NSEntityDescription.insertNewObject(forEntityName: "PeriodAddressEntity",
-                                                                    into: Storage.shared.context) as? PeriodAddressEntity {
+        periods.forEach({ periodModel  in
+            if let newPeriod =  NSEntityDescription.insertNewObject(forEntityName: "PeriodEntity",
+                                                                    into: Storage.shared.context) as? PeriodEntity {
                 newPeriod.sortIndex = sortIndex
-                newPeriod.map(with: periodAddress)
+                newPeriod.map(with: periodModel)
                 
                 sortIndex += 1
             }
@@ -34,11 +34,11 @@ extension PeriodAddressEntity {
         _ = Storage.shared.saveContext()
     }
     
-    class func periods(limit: Int = 20, offset: Int) -> [PeriodAddressEntity] {
-        let fetchRequest: NSFetchRequest<PeriodAddressEntity> = PeriodAddressEntity.fetchRequest()
+    class func periods(limit: Int = 20, offset: Int) -> [PeriodEntity] {
+        let fetchRequest: NSFetchRequest<PeriodEntity> = PeriodEntity.fetchRequest()
         fetchRequest.fetchLimit = limit
         fetchRequest.fetchOffset = offset
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(PeriodAddressEntity.sortIndex),
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(PeriodEntity.sortIndex),
                                                          ascending: true)]
         
         do {
@@ -51,7 +51,7 @@ extension PeriodAddressEntity {
     }
     
     class func clearPeriods() -> Bool {
-        if deleteData(entity: "PeriodAddressEntity") {
+        if deleteData(entity: "PeriodEntity") {
             _ = Storage.shared.saveContext()
             return true
         }
