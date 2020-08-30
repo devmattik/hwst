@@ -17,35 +17,33 @@ class ClassifierDetailViewModel {
     
     private var periodViewModels = [PeriodViewModel]()
     
-    func start() {
-        periodsService.start()
-        
-        periodsService.onInserItems = { [weak self] indexes, newPeriodModels in
-            guard let strongSelf = self else { return }
-            strongSelf.periodViewModels = newPeriodModels.map({ PeriodViewModel(model: $0) })
-
-            let indexPaths = indexes.map({ IndexPath(row: $0, section: 0) })
-            strongSelf.onInserItems?(indexPaths)
-        }
-        
-        periodsService.onReloadAllItems = { [weak self] newPeriodModels in
-            self?.periodViewModels = newPeriodModels.map({ PeriodViewModel(model: $0) })
-            self?.onReloadAllItems?()
-        }
-        
-        periodsService.onError = { [weak self] errorMessage in
-            self?.onError?(errorMessage)
-        }
+    init() {
+        periodsService.onInserItems = onInserItems
+        periodsService.onError = onError
     }
     
-    func reStart() {
-        periodViewModels.removeAll()
-        onReloadAllItems?()
-        start()
+    func start() {
+        periodsService.start()
     }
     
     func loadNextPage() {
         periodsService.loadNextPage()
+    }
+    
+    // Bindings
+    private func onInserItems(_ indexes: [Int], _ periods: [PeriodModel], _ clearAll: Bool) -> Void {
+        periodViewModels = periods.map({ PeriodViewModel(model: $0) })
+
+        if clearAll {
+            onReloadAllItems?()
+        } else {
+            let indexPaths = indexes.map({ IndexPath(row: $0, section: 0) })
+            onInserItems?(indexPaths)
+        }
+    }
+    
+    private func onError(_ errorMessage: String) -> Void {
+        onError?(errorMessage)
     }
     
     // MARK: Data Source

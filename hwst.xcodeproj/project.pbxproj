@@ -188,14 +188,14 @@
 		5DA26F9324F44252006DEC00 /* Period */ = {
 			isa = PBXGroup;
 			children = (
+				5DA26F9B24F44288006DEC00 /* PeriodService.swift */,
+				5D0C234A24FB9725006B48B7 /* ClassifierDetailViewModel.swift */,
 				5DA26F6324F05E70006DEC00 /* ClassifierDetailViewController.swift */,
 				5D0C232A24F4555D006B48B7 /* ClassifierDetailView.swift */,
-				5D0C234A24FB9725006B48B7 /* ClassifierDetailViewModel.swift */,
-				5DA26F9D24F44288006DEC00 /* PeriodTableViewCell.swift */,
-				5DA26F9B24F44288006DEC00 /* PeriodService.swift */,
 				5DA26F9C24F44288006DEC00 /* PeriodAPI.swift */,
 				5DA26F9A24F44288006DEC00 /* PeriodModel.swift */,
 				5D0C234524F84190006B48B7 /* PeriodViewModel.swift */,
+				5DA26F9D24F44288006DEC00 /* PeriodTableViewCell.swift */,
 			);
 			path = Period;
 			sourceTree = "<group>";

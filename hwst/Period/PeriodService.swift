@@ -22,36 +22,32 @@ class PeriodService {
     private let limit = 20
     private var currentOffset = 0
     private var isFetching = false
+    private var needsClearAll = true
     
-    var onInserItems: ((_ indexes: [Int], _ periods: [PeriodModel]) -> Void)?
-    var onReloadAllItems: ((_ periods: [PeriodModel]) -> Void)?
+    var onInserItems: ((_ indexes: [Int], _ periods: [PeriodModel], _ clearAll: Bool) -> Void)?
     var onError: ((_ errorMessage: String) -> Void)?
     
     func start() {
-        loadClassifier()
-    }
-    
-    func reStart() {
         currentOffset = 0
-        periodModels.removeAll()
-        onReloadAllItems?(periodModels)
-        start()
+        needsClearAll = true
+        loadClassifier()
     }
     
     func loadNextPage() {
         guard !isFetching, !periodModels.isEmpty else { return }
-        loadPage()
+        fetchPeriods()
     }
     
     private func loadClassifier() {
         classifierService.load() { [weak self] result in
             switch result {
             case .success(let url):
+                self?.periodModels.removeAll()
                 self?.load(url: url)
             case .failure(let error):
                 debugPrint(error)
                 self?.onError?(GlobalStrings.dataErrorMessage)
-                self?.loadPage()
+                self?.fetchPeriods()
             }
         }
     }
@@ -68,23 +64,22 @@ class PeriodService {
                 debugPrint(error)
             }
             
-            self?.loadPage()
+            self?.fetchPeriods()
         }
     }
     
-    private func loadPage() {
+    private func fetchPeriods() {
         isFetching = true
         
-        let savedPeriods = PeriodEntity.periods(limit: limit, offset: currentOffset)
-        if !savedPeriods.isEmpty {
+        let savedPeriods = PeriodEntity.periods(limit: limit,
+                                                offset: currentOffset)
             
+        if !savedPeriods.isEmpty {
             let savedPeriodModels = savedPeriods.map { PeriodModel(from: $0) }
             periodModels.append(contentsOf: savedPeriodModels)
             currentOffset += limit
-            isFetching = false
-        } else {
-            isFetching = false
         }
+        isFetching = false
     }
     
     private func onUpdatePeriodModels() {
@@ -93,7 +88,7 @@ class PeriodService {
             ? Array(currentCount ..< periodModels.count)
             : Array(0 ..< periodModels.count)
         if !indexes.isEmpty {
-            onInserItems?(indexes, periodModels)
+            onInserItems?(indexes, periodModels, needsClearAll)
         }
     }
     

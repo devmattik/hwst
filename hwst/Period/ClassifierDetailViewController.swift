@@ -34,9 +34,7 @@ class ClassifierDetailViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        viewModel.start()
-        
-        startSpinner()
+        start()
         
         viewModel.onInserItems = { [weak self] indexPaths in
             guard let strongSelf = self else { return }
@@ -47,15 +45,19 @@ class ClassifierDetailViewController: UIViewController {
         }
         
         viewModel.onReloadAllItems = { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.reloadData()
-            }
+            self?.stopSpinner()
+            self?.tableView.reloadData()
         }
         
         viewModel.onError = { [weak self] errorMessage in
             self?.showError(message: errorMessage)
             self?.stopSpinner()
         }
+    }
+    
+    private func start() {
+        startSpinner()
+        viewModel.start()
     }
     
     private func startSpinner() {
@@ -69,9 +71,9 @@ class ClassifierDetailViewController: UIViewController {
     private func showError(message: String) {
         let alert = UIAlertController(title: GlobalStrings.errorTitle, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: GlobalStrings.cancel, style: .destructive, handler: nil)
+        
         let retryAction = UIAlertAction(title: GlobalStrings.retry, style: .default, handler: { [weak self] _ in
-            self?.startSpinner()
-            self?.viewModel.reStart()
+            self?.start()
         })
         
         alert.addAction(cancelAction)
