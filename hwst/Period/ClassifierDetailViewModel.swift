@@ -19,7 +19,7 @@ class ClassifierDetailViewModel {
     
     init() {
         periodsService.onInserItems = onInserItems
-        periodsService.onError = onError
+        periodsService.onError = onResultError
     }
     
     func start() {
@@ -42,7 +42,7 @@ class ClassifierDetailViewModel {
         }
     }
     
-    private func onError(_ errorMessage: String) -> Void {
+    private func onResultError(_ errorMessage: String) -> Void {
         onError?(errorMessage)
     }
     
