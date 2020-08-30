@@ -1,5 +1,5 @@
 //
-//  PeriodViewController.swift
+//  ClassifierDetailViewController.swift
 //  hwst
 //
 //  Created by Антон Прохоров on 21.08.2020.
@@ -8,12 +8,20 @@
 
 import UIKit
 
-class PeriodViewController: UIViewController {
-
-    private let periodsService = PeriodService()
+class ClassifierDetailViewController: UIViewController {
     
-    private let mainView = PeriodView()
+    private let viewModel: ClassifierDetailViewModel
+    private let mainView = ClassifierDetailView()
     private lazy var tableView = mainView.tableView
+    
+    init(viewModel: ClassifierDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = mainView
@@ -22,30 +30,29 @@ class PeriodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = GSC.periodTitle
+        title = GlobalStrings.periodTitle
         tableView.dataSource = self
         tableView.delegate = self
         
-        periodsService.start()
+        viewModel.start()
         
         startSpinner()
         
-        periodsService.onInserItems = { indexes in
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
-                let indexPaths = indexes.map({ IndexPath(row: $0, section: 0) })
-                UIView.performWithoutAnimation {
-                    strongSelf.tableView.insertRows(at: indexPaths, with: .none)
-                }
-                strongSelf.stopSpinner()
+        viewModel.onInserItems = { [weak self] indexPaths in
+            guard let strongSelf = self else { return }
+            strongSelf.stopSpinner()
+            UIView.performWithoutAnimation {
+                strongSelf.tableView.insertRows(at: indexPaths, with: .none)
             }
         }
         
-        periodsService.onReloadAllItems = { [weak self] in
-            self?.tableView.reloadData()
+        viewModel.onReloadAllItems = { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
         }
         
-        periodsService.onError = { [weak self] errorMessage in
+        viewModel.onError = { [weak self] errorMessage in
             self?.showError(message: errorMessage)
             self?.stopSpinner()
         }
@@ -60,11 +67,11 @@ class PeriodViewController: UIViewController {
     }
     
     private func showError(message: String) {
-        let alert = UIAlertController(title: GSC.errorTitle, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: GSC.cancel, style: .destructive, handler: nil)
-        let retryAction = UIAlertAction(title: GSC.retry, style: .default, handler: { [weak self] _ in
+        let alert = UIAlertController(title: GlobalStrings.errorTitle, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: GlobalStrings.cancel, style: .destructive, handler: nil)
+        let retryAction = UIAlertAction(title: GlobalStrings.retry, style: .default, handler: { [weak self] _ in
             self?.startSpinner()
-            self?.periodsService.reStart()
+            self?.viewModel.reStart()
         })
         
         alert.addAction(cancelAction)
@@ -74,20 +81,20 @@ class PeriodViewController: UIViewController {
     }
 }
 
-extension PeriodViewController: UITableViewDataSource {
+extension ClassifierDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return periodsService.numberOfItems()
+        return viewModel.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView
             .dequeueReusableCell(withIdentifier: PeriodTableViewCell.identifier) as? PeriodTableViewCell,
-            let item = periodsService.item(at: indexPath.row)
+            let item = viewModel.item(at: indexPath.row)
         else {
             return UITableViewCell()
         }
@@ -97,12 +104,12 @@ extension PeriodViewController: UITableViewDataSource {
     }
 }
 
-extension PeriodViewController: UITableViewDelegate {
+extension ClassifierDetailViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let actualPosition = scrollView.contentOffset.y;
         let contentHeight = scrollView.contentSize.height - (scrollView.frame.height * 2);
         if actualPosition >= contentHeight {
-            periodsService.loadNextPage()
+            viewModel.loadNextPage()
          }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PeriodView.swift
+//  ClassifierDetailView.swift
 //  hwst
 //
 //  Created by Антон Прохоров on 24.08.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PeriodView: UIView {
+class ClassifierDetailView: UIView {
     
     let tableView = PeriodTableView()
     let spinner = SpinnerView()

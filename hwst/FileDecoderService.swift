@@ -25,13 +25,13 @@ class FileDecoderService {
     private func save(base64String: String, toFile url: URL) -> Result<URL, ClassifierError> {
         guard let convertedData = Data(base64Encoded: base64String)
         else {
-            return Result.failure(ClassifierError(message: GSC.convertedDataErrorMessage))
+            return Result.failure(ClassifierError(message: GlobalStrings.convertedDataErrorMessage))
         }
 
         do {
             try convertedData.write(to: url)
         } catch {
-            return Result.failure(ClassifierError(message: GSC.writeToFileErrorMessage, error: error))
+            return Result.failure(ClassifierError(message: GlobalStrings.writeToFileErrorMessage, error: error))
         }
         
         return Result.success(url)
@@ -54,7 +54,7 @@ class FileDecoderService {
                                 fileURL = fileOutpuURL
                               })
         } catch {
-            completion(Result.failure(ClassifierError(message: GSC.unzipFileErrorMessage,
+            completion(Result.failure(ClassifierError(message: GlobalStrings.unzipFileErrorMessage,
                                                               error: error)))
         }
     }

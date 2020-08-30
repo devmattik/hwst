@@ -22,9 +22,9 @@ class PeriodViewModel {
     }
     
     private func house(with house: String, housing: String, letter: String) -> String {
-        let houseStr = house.isEmpty ? nil : "\(GSC.house) \(house)"
-        let housingStr = housing.isEmpty ? nil : "\(GSC.housing) \(housing)"
-        let letterStr = letter.isEmpty ? nil : "\(GSC.letter) \(letter)"
+        let houseStr = house.isEmpty ? nil : "\(GlobalStrings.house) \(house)"
+        let housingStr = housing.isEmpty ? nil : "\(GlobalStrings.housing) \(housing)"
+        let letterStr = letter.isEmpty ? nil : "\(GlobalStrings.letter) \(letter)"
         let houseArray = [houseStr, housingStr, letterStr]
         return houseArray.compactMap({ $0 }).joined(separator: " ")
     }

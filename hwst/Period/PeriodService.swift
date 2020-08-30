@@ -13,9 +13,9 @@ class PeriodService {
     private let classifierService = ClassifierService()
     private let periodAPI = PeriodAPI()
     
-    private var periodAddresses = [PeriodModel](){
+    private var periodModels = [PeriodModel](){
         didSet {
-            onUpdatePeriodAdresses()
+            onUpdatePeriodModels()
         }
     }
     
@@ -23,8 +23,8 @@ class PeriodService {
     private var currentOffset = 0
     private var isFetching = false
     
-    var onInserItems: ((_ indexes: [Int]) -> Void)?
-    var onReloadAllItems: (() -> Void)?
+    var onInserItems: ((_ indexes: [Int], _ periods: [PeriodModel]) -> Void)?
+    var onReloadAllItems: ((_ periods: [PeriodModel]) -> Void)?
     var onError: ((_ errorMessage: String) -> Void)?
     
     func start() {
@@ -33,16 +33,13 @@ class PeriodService {
     
     func reStart() {
         currentOffset = 0
-        periodAddresses.removeAll()
-        DispatchQueue.main.async { [weak self] in
-            self?.onReloadAllItems?()
-        }
-        
+        periodModels.removeAll()
+        onReloadAllItems?(periodModels)
         start()
     }
     
     func loadNextPage() {
-        guard !isFetching, !periodAddresses.isEmpty else { return }
+        guard !isFetching, !periodModels.isEmpty else { return }
         loadPage()
     }
     
@@ -53,7 +50,7 @@ class PeriodService {
                 self?.load(url: url)
             case .failure(let error):
                 debugPrint(error)
-                self?.onError?(GSC.dataErrorMessage)
+                self?.onError?(GlobalStrings.dataErrorMessage)
                 self?.loadPage()
             }
         }
@@ -64,7 +61,7 @@ class PeriodService {
         periodAPI.loadPeriods(from: url) { [weak self] result in
             switch result {
             case .success(let periods):
-                if periods != self?.periodAddresses {
+                if periods != self?.periodModels {
                     self?.savePeriods(periods)
                 }
             case .failure(let error):
@@ -81,8 +78,8 @@ class PeriodService {
         let savedPeriods = PeriodEntity.periods(limit: limit, offset: currentOffset)
         if !savedPeriods.isEmpty {
             
-            let periodModels = savedPeriods.map { PeriodModel(from: $0) }
-            periodAddresses.append(contentsOf: periodModels)
+            let savedPeriodModels = savedPeriods.map { PeriodModel(from: $0) }
+            periodModels.append(contentsOf: savedPeriodModels)
             currentOffset += limit
             isFetching = false
         } else {
@@ -90,13 +87,13 @@ class PeriodService {
         }
     }
     
-    private func onUpdatePeriodAdresses() {
-        let currentCount = periodAddresses.count - limit
+    private func onUpdatePeriodModels() {
+        let currentCount = periodModels.count - limit
         let indexes = currentCount > 0
-            ? Array(currentCount ..< periodAddresses.count)
-            : Array(0 ..< periodAddresses.count)
+            ? Array(currentCount ..< periodModels.count)
+            : Array(0 ..< periodModels.count)
         if !indexes.isEmpty {
-            onInserItems?(indexes)
+            onInserItems?(indexes, periodModels)
         }
     }
     
@@ -104,20 +101,5 @@ class PeriodService {
         debugPrint("Save periods count ", periods.count)
         _ = PeriodEntity.clearPeriods()
         PeriodEntity.insert(periods: periods)
-    }
-}
-
-// PeriodService Data Source
-extension PeriodService {
-    func numberOfItems() -> Int {
-        return periodAddresses.count
-    }
-    
-    func item(at index: Int) -> PeriodViewModel? {
-        guard index < numberOfItems() else {
-            assertionFailure("Index can not be greater than numberOfItems count")
-            return nil
-        }
-        return PeriodViewModel(model: periodAddresses[index])
     }
 }

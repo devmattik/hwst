@@ -22,7 +22,7 @@ class ClassifierAPI {
                 case .success(let classifierResponse):
                     guard let classifier = classifierResponse.responseData.classifiers.first
                     else {
-                        let classifierError = ClassifierError(message: GSC.emptyClassifier)
+                        let classifierError = ClassifierError(message: GlobalStrings.emptyClassifier)
                         let result = ClassifierAPIResult.failure(classifierError)
                         completion(result)
                         return
@@ -33,7 +33,7 @@ class ClassifierAPI {
                     let result = ClassifierAPIResult.success(classifier)
                     completion(result)
                 case .failure(let error):
-                    let classifierError = ClassifierError(message: GSC.serverError, error: error)
+                    let classifierError = ClassifierError(message: GlobalStrings.serverError, error: error)
                     let result = ClassifierAPIResult.failure(classifierError)
                     completion(result)
                 }
